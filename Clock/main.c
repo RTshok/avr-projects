@@ -37,29 +37,14 @@ const uint8_t segm_sym_table[] = {
 	[8] = 0x7F,
 	[9] = 0x6F
 };
-void sleep_ms(uint16_t ms_val)
+static void sleep_ms(volatile uint16_t N)
 {
-	
-	/* Set Power-Save sleep mode */
-	/* https://www.nongnu.org/avr-libc/user-manual/group__avr__sleep.html */
-	set_sleep_mode(SLEEP_MODE_IDLE);
-	/* Disable interrupts -- as memory barrier */
-	sleep_enable();	/* Set SE (sleep enable bit) */
-	/* Enable interrupts. We want to wake up, don't we? */
-	TIMSK0 |= (1 << TOIE0); /* Enable Timer2 Overflow interrupt by mask */
-	while (ms_val--) {
-		/* Count 1 ms from TCNT2 to 0xFF (up direction) */
-		TCNT0 = (uint8_t)(0xFF - (F_CPU / 128) / 1000);
-
-		/* Enable Timer2 */
-		TCCR0B =  (1 << CS02) | (1 << CS00); /* f = Fclk_io / 128, start timer */
-
-		/*sleep_cpu();*/	/* Put MCU to sleep */
-
-		/* This is executed after wakeup */
-
+	/* If volatile is not used, AVR-GCC will optimize this stuff out     */
+        /* making our function completely empty                              */
+	volatile uint8_t inner = 0xFF;
+	while (N--) {
+		while (inner--);
 	}
-	sleep_disable();	/* Disable sleeps for safety */		
 }
 
 void segm_min(uint8_t number){
@@ -93,10 +78,10 @@ static struct segm_Display display = {
 };
 
 ISR(INT0_vect)	/*handling  button interrupt*/
-{	
-	if((PIND &0x00)==0){
-	sleep_ms(100);
-	if((PIND&0x00)==0){
+{
+	if((PIND & (1 << PD0))==0){
+	sleep_ms(90);
+	if((PIND & (1 << PD0))==0){
 	if(minutes<59){
 	minutes++;
 	}
@@ -113,7 +98,9 @@ ISR(INT0_vect)	/*handling  button interrupt*/
 
 }
 ISR(INT1_vect){	/*handling hour button interrupt*/
-	sleep_ms(100);
+	if((PIND & (1 << PD1))==0){
+	sleep_ms(90);
+	if((PIND & (1 << PD1))==0){
 	if(hours>=23){
 	hours = 0;
 	segm_hours(hours);
@@ -123,6 +110,8 @@ ISR(INT1_vect){	/*handling hour button interrupt*/
 	}
 	seconds = 0;
 	TCNT1 = 49911;
+	}
+	}
 }
 ISR(TIMER1_OVF_vect)/*handling timer interrupt*/
 {

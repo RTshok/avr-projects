@@ -2,8 +2,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-static const uint8_t stddelay = 2;
-static const uint16_t sym_delay = 500;	/* 500 / Hz */
+static const uint8_t stddelay = 1;
+static const uint16_t sym_delay = 1;	/* 500 / Hz */
 
 
 
