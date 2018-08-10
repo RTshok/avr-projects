@@ -1,3 +1,5 @@
+/*This file was made by Tymofii Hodnev https://github.com/thodnev */
+
 #include "segm.h"
 #include <stdint.h>
 #include <stdbool.h>

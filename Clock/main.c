@@ -77,10 +77,10 @@ static struct segm_Display display = {
 	.is_comm_anode = false	
 };
 
-ISR(INT0_vect)	/*handling  button interrupt*/
+ISR(INT0_vect,ISR_BLOCK)	/*handling  button interrupt*/
 {
 	if((PIND & (1 << PD0))==0){
-	sleep_ms(90);
+	sleep_ms(100);
 	if((PIND & (1 << PD0))==0){
 	if(minutes<59){
 	minutes++;
@@ -97,9 +97,9 @@ ISR(INT0_vect)	/*handling  button interrupt*/
 	}
 
 }
-ISR(INT1_vect){	/*handling hour button interrupt*/
+ISR(INT1_vect,ISR_BLOCK){	/*handling hour button interrupt*/
 	if((PIND & (1 << PD1))==0){
-	sleep_ms(90);
+	sleep_ms(100);
 	if((PIND & (1 << PD1))==0){
 	if(hours>=23){
 	hours = 0;
