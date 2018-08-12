@@ -62,40 +62,42 @@ int main()
 	
 	uart_print("USAGE : \n");
 	soft_delay_us(500);
-	uart_print("ADD_KEY\n");
+	uart_print("add_key\n");
 	soft_delay_us(500);
-	uart_print("SHOW_KEYS\n");
+	uart_print("show_keys\n");
 	soft_delay_us(500);
-	uart_print("OPEN\n");
+	uart_print("open\n");
 	soft_delay_us(500);
-	uart_print("CLOSE\n");
+	uart_print("close\n");
 	soft_delay_us(500);
-	uart_print("KEYS\n");
+	uart_print("keys\n");
 	soft_delay_us(1000);
-	uart_print("ERASE\n");
+	uart_print("erase\n");
 	uint8_t ibutton_id[8];
 	uint8_t crc;
 	while (1) {
+		/* waits for the data from COM-port */
 		uart_read_string(uart_data);
-		if(comp_func(uart_data,"ADD_KEY")){
-		_delay_ms(2000);
-		err = ow_cmd_readrom(&pin, &ibutton_id[0], &crc, true, false);
-			if (err == OW_EOK) {
-				if(check_keys(keys,&ibutton_id[0],cnt_keys)){
-				uart_print("Key is already in memory!\n");
-				}else{
-				add_key(&ibutton_id[0],cnt_keys);
-				cnt_keys++;
-				EEPROM_write(1,cnt_keys);
-				EEPROM_init(keys,cnt_keys);
-				soft_delay_us(500);
-				uart_print("\nkey has been successfully added!\n");
-				}
-			} else {
-			uart_print("key isn't suitable \n");
-			  }
+		if(comp_func(uart_data,"add_key")){
+			/* delay to wait for a key */
+			_delay_ms(2000);
+			err = ow_cmd_readrom(&pin, &ibutton_id[0], &crc, true, false);
+				if (err == OW_EOK) {
+					if(check_keys(keys,&ibutton_id[0],cnt_keys)){
+					uart_print("Key is already in memory!\n");
+					}else{
+					add_key(&ibutton_id[0],cnt_keys);
+					cnt_keys++;
+					EEPROM_write(1,cnt_keys);
+					EEPROM_init(keys,cnt_keys);
+					soft_delay_us(500);
+					uart_print("\nkey has been successfully added!\n");
+					}
+				} else {
+					uart_print("key isn't suitable \n");
+			 	 }
 		}
-		if(comp_func(uart_data,"SHOW_KEYS")){
+		if(comp_func(uart_data,"show_keys")){
 			if(cnt_keys == 0){
 			uart_print("NO KEYS ! \n");
 			}
@@ -103,8 +105,10 @@ int main()
 			show_keys(keys,cnt_keys);
 			}
 		}
-		if(comp_func(uart_data,"OPEN"))
-		{	if((PINB&(1<<PB1))==0){
+		if(comp_func(uart_data,"open"))
+		{	/* if LED(lock) is unable -> enable */
+			if((PINB&(1<<PB1))==0){
+				/* delay to wait for a key */
 				_delay_ms(2000);
 				err = ow_cmd_readrom(&pin, &ibutton_id[0], &crc, true, false);
 				if (err == OW_EOK) {
@@ -122,7 +126,8 @@ int main()
 			else
 			uart_print("Already opened!\n");
 		}
-		if(comp_func(uart_data,"CLOSE")){
+		if(comp_func(uart_data,"close")){
+			/* if LED(lock) is enable -> make unable */
 			if((PINB&(1<<PB1))!=0){ 
 			PORTB &= ~(1<<1);
 			uart_print("CLOSED\n");
@@ -130,11 +135,11 @@ int main()
 			else
 			uart_print("Already closed\n");
 		}	
-		if(comp_func(uart_data,"KEYS")){
+		if(comp_func(uart_data,"keys")){
 		uart_print("AMOUNT OF KEYS :\n");
 		uart_transmit(cnt_keys);
 		}
-		if(comp_func(uart_data,"ERASE")){
+		if(comp_func(uart_data,"erase")){
 		delete_keys(cnt_keys,keys);
 		EEPROM_init(keys,cnt_keys);
 		cnt_keys = 0;
