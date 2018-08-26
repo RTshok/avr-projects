@@ -140,6 +140,21 @@ int main()
 		cnt_keys = 0;
 		uart_print("DATA HAS BEEN ERASED!\n");
 		}
+		if(comp_func(uart_data,"HELP")){
+		uart_print("USAGE : \n");
+		soft_delay_us(500);
+		uart_print("ADD_KEY\n");
+		soft_delay_us(500);
+		uart_print("SHOW_KEYS\n");
+		soft_delay_us(500);
+		uart_print("OPEN\n");
+		soft_delay_us(500);
+		uart_print("CLOSE\n");
+		soft_delay_us(500);
+		uart_print("KEYS\n");
+		soft_delay_us(1000);
+		uart_print("ERASE\n");
+		}
 	
 	}
 }

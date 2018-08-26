@@ -1,10 +1,10 @@
-TARGET:=new
-DEPS:=UART
+TARGET:=main
+DEPS:=oled segm
 MCU:=atmega32u4			# see avr-as --help for full list
 PROGPORT:=/dev/ttyACM0		# see ls /dev | grep tty and 99-Arduino.rules
 
-CC=avr-gcc -std=c11
-CFLAGS=-mmcu=$(MCU) -Os -Wall -Wextra -Waddr-space-convert  #-Werror  -save-temps
+CC=avr-gcc -std=gnu11
+CFLAGS=-mmcu=$(MCU) -O2 -Wall -Wextra -Waddr-space-convert  #-Werror  -save-temps
 SIZE:=avr-size --format=avr --mcu=$(MCU)
 OBJCOPY:=avr-objcopy -j .text -j .data -O ihex
 AVRDUDE:=avrdude

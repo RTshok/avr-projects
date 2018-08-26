@@ -1,6 +1,7 @@
 #define F_CPU 16000000
 #include <avr/io.h>
 #include <stdint.h>
+#include "UART.h"
 
 
 static uint8_t a = 100;
@@ -56,5 +57,6 @@ while(1){
 	SetPWMOutput(rand);
 	soft_delay(50);
 	}
+	uart_transmit(rand);
 }
 }
