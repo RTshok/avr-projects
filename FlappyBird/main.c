@@ -1,5 +1,6 @@
 #include "oled.h"
 #include "segm.h"
+#include "bird_variables.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <util/delay.h>
@@ -12,15 +13,16 @@ static uint8_t m = 31;
 static uint8_t seed = 10;
 /* --------------------- */
 OLED display;
-static uint8_t x,x1;
-static uint8_t bird_pos = 25;
-static uint8_t score = 0;
-static uint8_t width_of_block = 20;
-static uint8_t height_of_window = 25;
+uint8_t x=147;
+uint8_t x1=227;
+uint8_t bird_pos = 25;
+uint8_t score = 0;
+uint8_t width_of_block = 20;
+uint8_t height_of_window = 25;
+uint8_t RAND[2];
 /*---------------------- */
 /* Array for random position of the block */
-uint8_t RAND[2];
-static uint8_t BIRD [] = {
+const uint8_t BIRD [] = {
 0x20, 0x38, 0xCE, 0xC3, 0xF1, 0xC1, 0xC1, 0x81, 0x8D, 0xE5, 0x23, 0x2C, 0x38, 0x00, 
 };
 uint8_t indication_arr[] ={0x3F,0x3F,0x3F,0x3F};
@@ -109,15 +111,14 @@ segm_init(&sev_segm_display);
 sei();
 /* Array for the OLED display */
 uint8_t frame_buffer[1024] = {0};
-__OLED_init(&display,128,64,frame_buffer,800000,0b0111100);
+__OLED_init(&display,128,64,frame_buffer,500000,0b0111100);
 for(uint8_t i = 0; i<1; i++){
 RAND[i] = my_rand();
 	if(RAND[i] <=10)
 	RAND[i]= RAND[i] + 10;
 }
-/* Initialiazing position of blocks */
-x=147;
-x1=227;
+/* Initialiazing position of bird variables */
+
 /* Put the bird on the OLED display */
 OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,1);
 timer_init();

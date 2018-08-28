@@ -1,0 +1,114 @@
+\hypertarget{segm_8h}{}\section{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/segm.h File Reference}
+\label{segm_8h}\index{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/segm.\+h@{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/segm.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for segm.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{segm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{segm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsegm___port}{segm\+\_\+\+Port}}
+\item 
+struct \mbox{\hyperlink{structsegm___pin}{segm\+\_\+\+Pin}}
+\item 
+struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{segm_8h_a06fc87d81c62e9abb8790b6e5713c55ba75caf681321c19801afdf6bc1be2d1f5}{segm\+\_\+sym\+\_\+\+D\+A\+SH}} = 0x02, 
+\mbox{\hyperlink{segm_8h_a06fc87d81c62e9abb8790b6e5713c55babb7aa60c7ecf8d6e7f042f42d23552e6}{segm\+\_\+sym\+\_\+\+DP}} = 0x01
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{segm_8h_a2aebee439760254261be19bf1a95900d}{segm\+\_\+bcd}} (uint16\+\_\+t number, uint8\+\_\+t $\ast$res)
+\item 
+void \mbox{\hyperlink{segm_8h_ac86825e3ff30cad08a60aee2297f4e4d}{segm\+\_\+init}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}})
+\item 
+void \mbox{\hyperlink{segm_8h_a2f4c2a5aba0fba78b7e70914c70905f3}{segm\+\_\+shiftbyte}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}}, uint8\+\_\+t byte)
+\item 
+void \mbox{\hyperlink{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}{segm\+\_\+latch}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}})
+\item 
+void \mbox{\hyperlink{segm_8h_a036f80330b13cabce80c67d8ae1de13a}{segm\+\_\+indicate4}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}}, uint8\+\_\+t $\ast$arr4)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{segm_8h_ac85c2751533ddb9c5cddb60edb4242f3}{segm\+\_\+sym\+\_\+table}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{segm_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{segm_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\subsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+Stores special symbols to save space in symbol table \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{segm\+\_\+sym\+\_\+\+D\+A\+SH@{segm\+\_\+sym\+\_\+\+D\+A\+SH}!segm.\+h@{segm.\+h}}\index{segm.\+h@{segm.\+h}!segm\+\_\+sym\+\_\+\+D\+A\+SH@{segm\+\_\+sym\+\_\+\+D\+A\+SH}}}\mbox{\Hypertarget{segm_8h_a06fc87d81c62e9abb8790b6e5713c55ba75caf681321c19801afdf6bc1be2d1f5}\label{segm_8h_a06fc87d81c62e9abb8790b6e5713c55ba75caf681321c19801afdf6bc1be2d1f5}} 
+segm\+\_\+sym\+\_\+\+D\+A\+SH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{segm\+\_\+sym\+\_\+\+DP@{segm\+\_\+sym\+\_\+\+DP}!segm.\+h@{segm.\+h}}\index{segm.\+h@{segm.\+h}!segm\+\_\+sym\+\_\+\+DP@{segm\+\_\+sym\+\_\+\+DP}}}\mbox{\Hypertarget{segm_8h_a06fc87d81c62e9abb8790b6e5713c55babb7aa60c7ecf8d6e7f042f42d23552e6}\label{segm_8h_a06fc87d81c62e9abb8790b6e5713c55babb7aa60c7ecf8d6e7f042f42d23552e6}} 
+segm\+\_\+sym\+\_\+\+DP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{segm_8h_a2aebee439760254261be19bf1a95900d}\label{segm_8h_a2aebee439760254261be19bf1a95900d}} 
+\index{segm.\+h@{segm.\+h}!segm\+\_\+bcd@{segm\+\_\+bcd}}
+\index{segm\+\_\+bcd@{segm\+\_\+bcd}!segm.\+h@{segm.\+h}}
+\subsubsection{\texorpdfstring{segm\+\_\+bcd()}{segm\_bcd()}}
+{\footnotesize\ttfamily void segm\+\_\+bcd (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{number,  }\item[{uint8\+\_\+t $\ast$}]{res }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_a2aebee439760254261be19bf1a95900d}{segm\+\_\+bcd()}} -\/ convert binary number to B\+CD representation \+: value to be converted \+: byte array
+
+Non-\/packed B\+CD. User must ensure array has enough size. \mbox{\Hypertarget{segm_8h_a036f80330b13cabce80c67d8ae1de13a}\label{segm_8h_a036f80330b13cabce80c67d8ae1de13a}} 
+\index{segm.\+h@{segm.\+h}!segm\+\_\+indicate4@{segm\+\_\+indicate4}}
+\index{segm\+\_\+indicate4@{segm\+\_\+indicate4}!segm.\+h@{segm.\+h}}
+\subsubsection{\texorpdfstring{segm\+\_\+indicate4()}{segm\_indicate4()}}
+{\footnotesize\ttfamily void segm\+\_\+indicate4 (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display,  }\item[{uint8\+\_\+t $\ast$}]{arr4 }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}{segm\+\_\+latch()}} -\/ perform dynamic indication of 4 symbols on display \+: G\+P\+IO configuration structure \+: array of 4 symbols (7S\+E\+GM\+: \mbox{[}4\mbox{]}\mbox{[}3\mbox{]}\mbox{[}2\mbox{]}\mbox{[}1\mbox{]}) Inversion for common cathode displays is performed automatically \mbox{\Hypertarget{segm_8h_ac86825e3ff30cad08a60aee2297f4e4d}\label{segm_8h_ac86825e3ff30cad08a60aee2297f4e4d}} 
+\index{segm.\+h@{segm.\+h}!segm\+\_\+init@{segm\+\_\+init}}
+\index{segm\+\_\+init@{segm\+\_\+init}!segm.\+h@{segm.\+h}}
+\subsubsection{\texorpdfstring{segm\+\_\+init()}{segm\_init()}}
+{\footnotesize\ttfamily void segm\+\_\+init (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_ac86825e3ff30cad08a60aee2297f4e4d}{segm\+\_\+init()}} -\/ initialize G\+P\+IO for 74H\+C595 shift register \+: G\+P\+IO configuration structure \mbox{\Hypertarget{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}\label{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}} 
+\index{segm.\+h@{segm.\+h}!segm\+\_\+latch@{segm\+\_\+latch}}
+\index{segm\+\_\+latch@{segm\+\_\+latch}!segm.\+h@{segm.\+h}}
+\subsubsection{\texorpdfstring{segm\+\_\+latch()}{segm\_latch()}}
+{\footnotesize\ttfamily void segm\+\_\+latch (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}{segm\+\_\+latch()}} -\/ latch output on 74H\+C595 \+: G\+P\+IO configuration structure \mbox{\Hypertarget{segm_8h_a2f4c2a5aba0fba78b7e70914c70905f3}\label{segm_8h_a2f4c2a5aba0fba78b7e70914c70905f3}} 
+\index{segm.\+h@{segm.\+h}!segm\+\_\+shiftbyte@{segm\+\_\+shiftbyte}}
+\index{segm\+\_\+shiftbyte@{segm\+\_\+shiftbyte}!segm.\+h@{segm.\+h}}
+\subsubsection{\texorpdfstring{segm\+\_\+shiftbyte()}{segm\_shiftbyte()}}
+{\footnotesize\ttfamily void segm\+\_\+shiftbyte (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display,  }\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_a2f4c2a5aba0fba78b7e70914c70905f3}{segm\+\_\+shiftbyte()}} -\/ shift one byte to 74H\+C595 \+: G\+P\+IO configuration structure \+: a byte to be shifted 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{segm_8h_ac85c2751533ddb9c5cddb60edb4242f3}\label{segm_8h_ac85c2751533ddb9c5cddb60edb4242f3}} 
+\index{segm.\+h@{segm.\+h}!segm\+\_\+sym\+\_\+table@{segm\+\_\+sym\+\_\+table}}
+\index{segm\+\_\+sym\+\_\+table@{segm\+\_\+sym\+\_\+table}!segm.\+h@{segm.\+h}}
+\subsubsection{\texorpdfstring{segm\+\_\+sym\+\_\+table}{segm\_sym\_table}}
+{\footnotesize\ttfamily const uint8\+\_\+t segm\+\_\+sym\+\_\+table\mbox{[}$\,$\mbox{]}}
+
+Table, mapping numbers to bits for each segment of dispay For full A\+S\+C\+II table see \href{https://github.com/dmadison/LED-Segment-ASCII}\texttt{ https\+://github.\+com/dmadison/\+L\+E\+D-\/\+Segment-\/\+A\+S\+C\+II} 

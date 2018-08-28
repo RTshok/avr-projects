@@ -1,0 +1,200 @@
+\hypertarget{main_8c}{}\section{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/main.c File Reference}
+\label{main_8c}\index{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/main.\+c@{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/main.\+c}}
+{\ttfamily \#include \char`\"{}oled.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}segm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bird\+\_\+variables.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8c_ab16889ae984b9b798989a0d239283cac}{I\+SR}} (T\+I\+M\+E\+R1\+\_\+\+O\+V\+F\+\_\+vect)
+\item 
+\mbox{\hyperlink{main_8c_af356a6c8d31cc17eea0d8ee651244af8}{I\+SR}} (I\+N\+T2\+\_\+vect, I\+S\+R\+\_\+\+B\+L\+O\+CK)
+\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{oled_8h_a623701fb44241c4cd5f26762165895d3}{O\+L\+ED}} \mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a0f561e77fa0f040b637f4e04f6cd8078}{x}} =147
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a71f1089b13834924fe9e3ed339bd376c}{x1}} =227
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_ae43d1ef427f40f3121c2928aea60b8bd}{bird\+\_\+pos}} = 25
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_ad89903731d7f7be95b5d969211e27c26}{score}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a1bdffec6b67cf111be83e79dcfd54d72}{width\+\_\+of\+\_\+block}} = 20
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a86cc15a3557523793b3551ec3cb544e1}{height\+\_\+of\+\_\+window}} = 25
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a7198686a83dbe66886a92a7bfaca0ad4}{R\+A\+ND}} \mbox{[}2\mbox{]}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{main_8c_afa5e8afe61b312a32e80a6eaa13c33ce}{B\+I\+RD}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a8165086abb42214f102f8d0a0e145420}{indication\+\_\+arr}} \mbox{[}$\,$\mbox{]} =\{0x3\+F,0x3\+F,0x3\+F,0x3\+F\}
+\item 
+struct \mbox{\hyperlink{structsegm___port}{segm\+\_\+\+Port}} \mbox{\hyperlink{main_8c_a7197baf6eed2b2f400816d1961da05bf}{PB}}
+\item 
+struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} \mbox{\hyperlink{main_8c_a3f3f88912b226a0ad400388b5685ad80}{sev\+\_\+segm\+\_\+display}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{main_8c_ac85c2751533ddb9c5cddb60edb4242f3}{segm\+\_\+sym\+\_\+table}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ab16889ae984b9b798989a0d239283cac}\label{main_8c_ab16889ae984b9b798989a0d239283cac}} 
+\index{main.\+c@{main.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{T\+I\+M\+E\+R1\+\_\+\+O\+V\+F\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_af356a6c8d31cc17eea0d8ee651244af8}\label{main_8c_af356a6c8d31cc17eea0d8ee651244af8}} 
+\index{main.\+c@{main.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{I\+N\+T2\+\_\+vect}]{,  }\item[{I\+S\+R\+\_\+\+B\+L\+O\+CK}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_afa5e8afe61b312a32e80a6eaa13c33ce}\label{main_8c_afa5e8afe61b312a32e80a6eaa13c33ce}} 
+\index{main.\+c@{main.\+c}!B\+I\+RD@{B\+I\+RD}}
+\index{B\+I\+RD@{B\+I\+RD}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{B\+I\+RD}{BIRD}}
+{\footnotesize\ttfamily const uint8\+\_\+t B\+I\+RD\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{0x20, 0x38, 0xCE, 0xC3, 0xF1, 0xC1, 0xC1, 0x81, 0x8D, 0xE5, 0x23, 0x2C, 0x38, 0x00, }
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+The array which contains the data-\/bytes. That bytes are used to display the bird on the screen. \mbox{\Hypertarget{main_8c_ae43d1ef427f40f3121c2928aea60b8bd}\label{main_8c_ae43d1ef427f40f3121c2928aea60b8bd}} 
+\index{main.\+c@{main.\+c}!bird\+\_\+pos@{bird\+\_\+pos}}
+\index{bird\+\_\+pos@{bird\+\_\+pos}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{bird\+\_\+pos}{bird\_pos}}
+{\footnotesize\ttfamily uint8\+\_\+t bird\+\_\+pos = 25}
+
+The position of the bird in that moment. Default = 25. \mbox{\Hypertarget{main_8c_a3e76f7a85576b8363f3711038abdeebb}\label{main_8c_a3e76f7a85576b8363f3711038abdeebb}} 
+\index{main.\+c@{main.\+c}!display@{display}}
+\index{display@{display}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{display}{display}}
+{\footnotesize\ttfamily \mbox{\hyperlink{oled_8h_a623701fb44241c4cd5f26762165895d3}{O\+L\+ED}} display}
+
+\mbox{\Hypertarget{main_8c_a86cc15a3557523793b3551ec3cb544e1}\label{main_8c_a86cc15a3557523793b3551ec3cb544e1}} 
+\index{main.\+c@{main.\+c}!height\+\_\+of\+\_\+window@{height\+\_\+of\+\_\+window}}
+\index{height\+\_\+of\+\_\+window@{height\+\_\+of\+\_\+window}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{height\+\_\+of\+\_\+window}{height\_of\_window}}
+{\footnotesize\ttfamily uint8\+\_\+t height\+\_\+of\+\_\+window = 25}
+
+The height of the window, which the bird is supposed to fly through. By y axis. \mbox{\Hypertarget{main_8c_a8165086abb42214f102f8d0a0e145420}\label{main_8c_a8165086abb42214f102f8d0a0e145420}} 
+\index{main.\+c@{main.\+c}!indication\+\_\+arr@{indication\+\_\+arr}}
+\index{indication\+\_\+arr@{indication\+\_\+arr}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{indication\+\_\+arr}{indication\_arr}}
+{\footnotesize\ttfamily uint8\+\_\+t indication\+\_\+arr\mbox{[}$\,$\mbox{]} =\{0x3\+F,0x3\+F,0x3\+F,0x3\+F\}}
+
+\mbox{\Hypertarget{main_8c_a7197baf6eed2b2f400816d1961da05bf}\label{main_8c_a7197baf6eed2b2f400816d1961da05bf}} 
+\index{main.\+c@{main.\+c}!PB@{PB}}
+\index{PB@{PB}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{PB}{PB}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsegm___port}{segm\+\_\+\+Port}} PB}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .DDR = \&DDRB,}
+\DoxyCodeLine{    .PIN = \&PINB,}
+\DoxyCodeLine{    .PORT = \&PORTB,}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8c_a7198686a83dbe66886a92a7bfaca0ad4}\label{main_8c_a7198686a83dbe66886a92a7bfaca0ad4}} 
+\index{main.\+c@{main.\+c}!R\+A\+ND@{R\+A\+ND}}
+\index{R\+A\+ND@{R\+A\+ND}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{R\+A\+ND}{RAND}}
+{\footnotesize\ttfamily uint8\+\_\+t R\+A\+ND\mbox{[}2\mbox{]}}
+
+Array to contain random numbers for random position of the window on the display. \mbox{\Hypertarget{main_8c_ad89903731d7f7be95b5d969211e27c26}\label{main_8c_ad89903731d7f7be95b5d969211e27c26}} 
+\index{main.\+c@{main.\+c}!score@{score}}
+\index{score@{score}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily uint8\+\_\+t score = 0}
+
+Shows the amount of windows that the bird flew without crashing. Default = 0. \mbox{\Hypertarget{main_8c_ac85c2751533ddb9c5cddb60edb4242f3}\label{main_8c_ac85c2751533ddb9c5cddb60edb4242f3}} 
+\index{main.\+c@{main.\+c}!segm\+\_\+sym\+\_\+table@{segm\+\_\+sym\+\_\+table}}
+\index{segm\+\_\+sym\+\_\+table@{segm\+\_\+sym\+\_\+table}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{segm\+\_\+sym\+\_\+table}{segm\_sym\_table}}
+{\footnotesize\ttfamily const uint8\+\_\+t segm\+\_\+sym\+\_\+table\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    [0] = 0x3F,}
+\DoxyCodeLine{    [1] = 0x06,}
+\DoxyCodeLine{    [2] = 0x5B,}
+\DoxyCodeLine{    [3] = 0x4F,}
+\DoxyCodeLine{    [4] = 0x66,}
+\DoxyCodeLine{    [5] = 0x6D,}
+\DoxyCodeLine{    [6] = 0x7D,}
+\DoxyCodeLine{    [7] = 0x07,}
+\DoxyCodeLine{    [8] = 0x7F,}
+\DoxyCodeLine{    [9] = 0x6F}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+Table, mapping numbers to bits for each segment of dispay For full A\+S\+C\+II table see \href{https://github.com/dmadison/LED-Segment-ASCII}\texttt{ https\+://github.\+com/dmadison/\+L\+E\+D-\/\+Segment-\/\+A\+S\+C\+II} \mbox{\Hypertarget{main_8c_a3f3f88912b226a0ad400388b5685ad80}\label{main_8c_a3f3f88912b226a0ad400388b5685ad80}} 
+\index{main.\+c@{main.\+c}!sev\+\_\+segm\+\_\+display@{sev\+\_\+segm\+\_\+display}}
+\index{sev\+\_\+segm\+\_\+display@{sev\+\_\+segm\+\_\+display}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{sev\+\_\+segm\+\_\+display}{sev\_segm\_display}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} sev\+\_\+segm\+\_\+display}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .SHCP = \{.port = \&\mbox{\hyperlink{main_8c_a7197baf6eed2b2f400816d1961da05bf}{PB}}, .pin = 4\},}
+\DoxyCodeLine{    .STCP = \{.port = \&\mbox{\hyperlink{main_8c_a7197baf6eed2b2f400816d1961da05bf}{PB}}, .pin = 5\},}
+\DoxyCodeLine{    .DS   = \{.port = \&\mbox{\hyperlink{main_8c_a7197baf6eed2b2f400816d1961da05bf}{PB}}, .pin = 6\},}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    .delay\_func = \&\_delay\_loop\_1,   }
+\DoxyCodeLine{    .sleep\_ms\_func = \&\mbox{\hyperlink{oled_8c_afa0ca29e962a1bfcfb069585b2d9262e}{sleep\_ms}}, }
+\DoxyCodeLine{    .is\_comm\_anode = \textcolor{keyword}{false}  }
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8c_a1bdffec6b67cf111be83e79dcfd54d72}\label{main_8c_a1bdffec6b67cf111be83e79dcfd54d72}} 
+\index{main.\+c@{main.\+c}!width\+\_\+of\+\_\+block@{width\+\_\+of\+\_\+block}}
+\index{width\+\_\+of\+\_\+block@{width\+\_\+of\+\_\+block}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{width\+\_\+of\+\_\+block}{width\_of\_block}}
+{\footnotesize\ttfamily uint8\+\_\+t width\+\_\+of\+\_\+block = 20}
+
+The width of the block. Width by x axis. \mbox{\Hypertarget{main_8c_a0f561e77fa0f040b637f4e04f6cd8078}\label{main_8c_a0f561e77fa0f040b637f4e04f6cd8078}} 
+\index{main.\+c@{main.\+c}!x@{x}}
+\index{x@{x}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily uint8\+\_\+t x =147}
+
+That are the variables which are used to move blocks. These vars increment, and the blocks are moving. \mbox{\Hypertarget{main_8c_a71f1089b13834924fe9e3ed339bd376c}\label{main_8c_a71f1089b13834924fe9e3ed339bd376c}} 
+\index{main.\+c@{main.\+c}!x1@{x1}}
+\index{x1@{x1}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{x1}{x1}}
+{\footnotesize\ttfamily uint8\+\_\+t x1 =227}
+

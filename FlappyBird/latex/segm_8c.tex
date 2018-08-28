@@ -1,0 +1,61 @@
+\hypertarget{segm_8c}{}\section{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/segm.c File Reference}
+\label{segm_8c}\index{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/segm.\+c@{/home/artur/\+Documents/\+G\+L/\+Flappy\+Bird/segm.\+c}}
+{\ttfamily \#include \char`\"{}segm.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for segm.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{segm_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{segm_8c_a2aebee439760254261be19bf1a95900d}{segm\+\_\+bcd}} (uint16\+\_\+t number, uint8\+\_\+t $\ast$res)
+\item 
+void \mbox{\hyperlink{segm_8c_ac86825e3ff30cad08a60aee2297f4e4d}{segm\+\_\+init}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}})
+\item 
+void \mbox{\hyperlink{segm_8c_a2f4c2a5aba0fba78b7e70914c70905f3}{segm\+\_\+shiftbyte}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}}, uint8\+\_\+t byte)
+\item 
+void \mbox{\hyperlink{segm_8c_ac9bf92de1a00adc31ad0d4793a32b537}{segm\+\_\+latch}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}})
+\item 
+void \mbox{\hyperlink{segm_8c_a036f80330b13cabce80c67d8ae1de13a}{segm\+\_\+indicate4}} (struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$\mbox{\hyperlink{main_8c_a3e76f7a85576b8363f3711038abdeebb}{display}}, uint8\+\_\+t $\ast$arr4)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{segm_8c_a2aebee439760254261be19bf1a95900d}\label{segm_8c_a2aebee439760254261be19bf1a95900d}} 
+\index{segm.\+c@{segm.\+c}!segm\+\_\+bcd@{segm\+\_\+bcd}}
+\index{segm\+\_\+bcd@{segm\+\_\+bcd}!segm.\+c@{segm.\+c}}
+\subsubsection{\texorpdfstring{segm\+\_\+bcd()}{segm\_bcd()}}
+{\footnotesize\ttfamily void segm\+\_\+bcd (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{number,  }\item[{uint8\+\_\+t $\ast$}]{res }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_a2aebee439760254261be19bf1a95900d}{segm\+\_\+bcd()}} -\/ convert binary number to B\+CD representation \+: value to be converted \+: byte array
+
+Non-\/packed B\+CD. User must ensure array has enough size. \mbox{\Hypertarget{segm_8c_a036f80330b13cabce80c67d8ae1de13a}\label{segm_8c_a036f80330b13cabce80c67d8ae1de13a}} 
+\index{segm.\+c@{segm.\+c}!segm\+\_\+indicate4@{segm\+\_\+indicate4}}
+\index{segm\+\_\+indicate4@{segm\+\_\+indicate4}!segm.\+c@{segm.\+c}}
+\subsubsection{\texorpdfstring{segm\+\_\+indicate4()}{segm\_indicate4()}}
+{\footnotesize\ttfamily void segm\+\_\+indicate4 (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display,  }\item[{uint8\+\_\+t $\ast$}]{arr4 }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}{segm\+\_\+latch()}} -\/ perform dynamic indication of 4 symbols on display \+: G\+P\+IO configuration structure \+: array of 4 symbols (7S\+E\+GM\+: \mbox{[}4\mbox{]}\mbox{[}3\mbox{]}\mbox{[}2\mbox{]}\mbox{[}1\mbox{]}) Inversion for common cathode displays is performed automatically \mbox{\Hypertarget{segm_8c_ac86825e3ff30cad08a60aee2297f4e4d}\label{segm_8c_ac86825e3ff30cad08a60aee2297f4e4d}} 
+\index{segm.\+c@{segm.\+c}!segm\+\_\+init@{segm\+\_\+init}}
+\index{segm\+\_\+init@{segm\+\_\+init}!segm.\+c@{segm.\+c}}
+\subsubsection{\texorpdfstring{segm\+\_\+init()}{segm\_init()}}
+{\footnotesize\ttfamily void segm\+\_\+init (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_ac86825e3ff30cad08a60aee2297f4e4d}{segm\+\_\+init()}} -\/ initialize G\+P\+IO for 74H\+C595 shift register \+: G\+P\+IO configuration structure \mbox{\Hypertarget{segm_8c_ac9bf92de1a00adc31ad0d4793a32b537}\label{segm_8c_ac9bf92de1a00adc31ad0d4793a32b537}} 
+\index{segm.\+c@{segm.\+c}!segm\+\_\+latch@{segm\+\_\+latch}}
+\index{segm\+\_\+latch@{segm\+\_\+latch}!segm.\+c@{segm.\+c}}
+\subsubsection{\texorpdfstring{segm\+\_\+latch()}{segm\_latch()}}
+{\footnotesize\ttfamily void segm\+\_\+latch (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_ac9bf92de1a00adc31ad0d4793a32b537}{segm\+\_\+latch()}} -\/ latch output on 74H\+C595 \+: G\+P\+IO configuration structure \mbox{\Hypertarget{segm_8c_a2f4c2a5aba0fba78b7e70914c70905f3}\label{segm_8c_a2f4c2a5aba0fba78b7e70914c70905f3}} 
+\index{segm.\+c@{segm.\+c}!segm\+\_\+shiftbyte@{segm\+\_\+shiftbyte}}
+\index{segm\+\_\+shiftbyte@{segm\+\_\+shiftbyte}!segm.\+c@{segm.\+c}}
+\subsubsection{\texorpdfstring{segm\+\_\+shiftbyte()}{segm\_shiftbyte()}}
+{\footnotesize\ttfamily void segm\+\_\+shiftbyte (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsegm___display}{segm\+\_\+\+Display}} $\ast$}]{display,  }\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{segm_8h_a2f4c2a5aba0fba78b7e70914c70905f3}{segm\+\_\+shiftbyte()}} -\/ shift one byte to 74H\+C595 \+: G\+P\+IO configuration structure \+: a byte to be shifted 
