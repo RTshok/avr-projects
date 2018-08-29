@@ -21,6 +21,7 @@ uint8_t width_of_block = 20;
 uint8_t height_of_window = 25;
 uint8_t RAND[2];
 /*---------------------- */
+/* Array for random position of the block */
 const uint8_t BIRD [] = {
 0x20, 0x38, 0xCE, 0xC3, 0xF1, 0xC1, 0xC1, 0x81, 0x8D, 0xE5, 0x23, 0x2C, 0x38, 0x00, 
 };
@@ -142,7 +143,9 @@ while(1){
 	}
 	if(x<=0){
 	/* Generate new position for the window */
+	OLED_WITH_SPINLOCK(&display){
 	OLED_put_rectangle(&display,0,0,0,63,OLED_FILL | 0);
+	}
 	RAND[0] = my_rand();
 		if(RAND[0] <=10)
 		RAND[0]= RAND[0] + 10;	
