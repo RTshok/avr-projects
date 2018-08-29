@@ -76,9 +76,11 @@ const uint8_t segm_sym_table[] = {
 ISR(TIMER1_OVF_vect)/*handling timer interrupt*/
 {
 	/*Deleting previous bird, and put it on the new position*/
+	OLED_WITH_SPINLOCK(&display) {
 	OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,4);
 	bird_pos++;
 	OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,3);
+	}
 	TCNT1 = 64500;//64500
 }
 
@@ -89,9 +91,11 @@ ISR(INT2_vect,ISR_BLOCK){	/*handling button interrupt*/
 	sleep_ms(60);
 		if((PIND & (1 << PD2))==0){
 		/*Deleting previous bird, and put it on the new position*/
+		OLED_WITH_SPINLOCK(&display) {
 		OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,4);
 		bird_pos--;
 		OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,3);
+		}
 		/* Reset the timer to default */
 		TCNT1 = 64500;
 		}
@@ -111,7 +115,7 @@ segm_init(&sev_segm_display);
 sei();
 /* Array for the OLED display */
 uint8_t frame_buffer[1024] = {0};
-__OLED_init(&display,128,64,frame_buffer,500000,0b0111100);
+__OLED_init(&display,128,64,frame_buffer,800000,0b0111100);
 for(uint8_t i = 0; i<1; i++){
 RAND[i] = my_rand();
 	if(RAND[i] <=10)
@@ -161,7 +165,9 @@ while(1){
 	
 	}
 	if(x1<=0){
+	OLED_WITH_SPINLOCK(&display) {
 	OLED_put_rectangle(&display,0,0,0,63,OLED_FILL | 0);
+	}
 	RAND[1] = my_rand();
 		if(RAND[1] <=10)
 		RAND[1]= RAND[1] + 10;	
@@ -172,9 +178,11 @@ while(1){
 	/* Making the borders for the bird. Y axis */
 	/* If the bird not in that borders: set score to zero and clean the screen  */
 	if(bird_pos>=54 || bird_pos <=9){
+	OLED_WITH_SPINLOCK(&display) {
 	OLED_put_rectangle(&display,0,0,127,63,OLED_FILL | 0);
 	bird_pos = 30;
 	OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,3);
+	}
 	RAND[0] = my_rand();
 	RAND[1] = my_rand();
 	x = 147;
@@ -187,8 +195,10 @@ while(1){
 	if(x <= 50 && x>=30){
 		if(bird_pos >=RAND[0]+height_of_window-3 || bird_pos <= RAND[0]+3)
 		{
+		OLED_WITH_SPINLOCK(&display) {
 		OLED_put_rectangle(&display,0,0,127,63,OLED_FILL | 0);
 		OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,4);
+		}
 		bird_pos = 20;
 		RAND[0] = my_rand();
 		RAND[1] = my_rand();
@@ -209,8 +219,10 @@ while(1){
 	if(x1 <= 50 && x1>=30){
 		if(bird_pos >=RAND[1]+height_of_window-3 || bird_pos <= RAND[1]+3)
 		{
+		OLED_WITH_SPINLOCK(&display) {
 		OLED_put_rectangle(&display,0,0,127,63,OLED_FILL | 0);
 		OLED_put_masked_region(&display,30,bird_pos,BIRD,13,9,4);
+		}
 		bird_pos = 20;
 		RAND[1] = my_rand();
 		x = 147;
