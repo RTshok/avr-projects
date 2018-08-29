@@ -1,3 +1,4 @@
+/*  Copyright 2018, Tymofii Khodniev <thodnev @ github> */
 #include <stdint.h>
 #include <stdbool.h>
 

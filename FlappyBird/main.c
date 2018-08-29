@@ -21,7 +21,6 @@ uint8_t width_of_block = 20;
 uint8_t height_of_window = 25;
 uint8_t RAND[2];
 /*---------------------- */
-/* Array for random position of the block */
 const uint8_t BIRD [] = {
 0x20, 0x38, 0xCE, 0xC3, 0xF1, 0xC1, 0xC1, 0x81, 0x8D, 0xE5, 0x23, 0x2C, 0x38, 0x00, 
 };
